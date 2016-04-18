@@ -1,0 +1,220 @@
+Experiment 2 - Perceptron with MaxIterations = 20
+
+UNIGRAMS:
+python onlinelearning.py -a 1 -i 20 -f 1
++-------------------------------+
+| EXPERIMENT                    |
++-------------------------------+
+
+Algorithm: PERCEPTRON
+Max iterations: 20
+Feature set: UNIGRAMS
+
++-------------------------------+
+| TRAINING WEIGHTS              |
++-------------------------------+
+
+PERCEPTRON   Iteration #  0     Errors =  2241
+PERCEPTRON   Iteration #  1     Errors =  1107
+PERCEPTRON   Iteration #  2     Errors =  632
+PERCEPTRON   Iteration #  3     Errors =  463
+PERCEPTRON   Iteration #  4     Errors =  343
+PERCEPTRON   Iteration #  5     Errors =  220
+PERCEPTRON   Iteration #  6     Errors =  195
+PERCEPTRON   Iteration #  7     Errors =  160
+PERCEPTRON   Iteration #  8     Errors =  122
+PERCEPTRON   Iteration #  9     Errors =  108
+PERCEPTRON   Iteration #  10    Errors =  95
+PERCEPTRON   Iteration #  11    Errors =  90
+PERCEPTRON   Iteration #  12    Errors =  64
+PERCEPTRON   Iteration #  13    Errors =  59
+PERCEPTRON   Iteration #  14    Errors =  42
+PERCEPTRON   Iteration #  15    Errors =  42
+PERCEPTRON   Iteration #  16    Errors =  22
+PERCEPTRON   Iteration #  17    Errors =  18
+PERCEPTRON   Iteration #  18    Errors =  10
+PERCEPTRON   Iteration #  19    Errors =  9
+
++-------------------------------+
+| PERFORMANCE FOR TRAINING SET  |
++-------------------------------+
+
+MATCHES:  6391
+MISMATCHES:  7
+TRUE POSITIVES:  3207
+PREDICTED POSITIVES:  3211
+ACTUAL POSITIVES:  3210
+ACCURACY:  0.997811888038
+PRECISION:  0.998754282155
+RECALL:  0.999065420561
+AVERAGE:  0.998909851358
+F-SCORE:  0.99890982713
+
++---------------------------------+
+| PERFORMANCE FOR VALIDATING SET  |
++---------------------------------+
+
+MATCHES:  1563
+MISMATCHES:  569
+TRUE POSITIVES:  786
+PREDICTED POSITIVES:  1073
+ACTUAL POSITIVES:  1068
+ACCURACY:  0.537440863394
+PRECISION:  0.732525629077
+RECALL:  0.73595505618
+AVERAGE:  0.734240342629
+F-SCORE:  0.73423633816
+
++------------------------------+
+| PERFORMANCE FOR TESTING SET  |
++------------------------------+
+
+MATCHES:  1539
+MISMATCHES:  593
+TRUE POSITIVES:  764
+PREDICTED POSITIVES:  1068
+ACTUAL POSITIVES:  1053
+ACCURACY:  0.521129004292
+PRECISION:  0.715355805243
+RECALL:  0.725546058879
+AVERAGE:  0.720450932061
+F-SCORE:  0.720414898633
+
+
+BIGRAMS:
+python onlinelearning.py -a 1 -i 20 -f 2
++-------------------------------+
+| EXPERIMENT                    |
++-------------------------------+
+
+Algorithm: PERCEPTRON
+Max iterations: 20
+Feature set: BIGRAMS
+
++-------------------------------+
+| TRAINING WEIGHTS              |
++-------------------------------+
+
+PERCEPTRON   Iteration #  0     Errors =  2857
+PERCEPTRON   Iteration #  1     Errors =  484
+PERCEPTRON   Iteration #  2     Errors =  99
+PERCEPTRON   Iteration #  3     Errors =  12
+PERCEPTRON   Iteration #  4     Errors =  0
+
++-------------------------------+
+| PERFORMANCE FOR TRAINING SET  |
++-------------------------------+
+
+MATCHES:  6385
+MISMATCHES:  0
+TRUE POSITIVES:  3208
+PREDICTED POSITIVES:  3208
+ACTUAL POSITIVES:  3210
+ACCURACY:  1.00000647583
+PRECISION:  1.0
+RECALL:  0.99937694704
+AVERAGE:  0.99968847352
+F-SCORE:  0.999688376441
+
++---------------------------------+
+| PERFORMANCE FOR VALIDATING SET  |
++---------------------------------+
+
+MATCHES:  1232
+MISMATCHES:  899
+TRUE POSITIVES:  403
+PREDICTED POSITIVES:  638
+ACTUAL POSITIVES:  1068
+ACCURACY:  0.294276145881
+PRECISION:  0.631661442006
+RECALL:  0.37734082397
+AVERAGE:  0.504501132988
+F-SCORE:  0.47245017585
+
++------------------------------+
+| PERFORMANCE FOR TESTING SET  |
++------------------------------+
+
+MATCHES:  1312
+MISMATCHES:  819
+TRUE POSITIVES:  471
+PREDICTED POSITIVES:  708
+ACTUAL POSITIVES:  1053
+ACCURACY:  0.348955277527
+PRECISION:  0.665254237288
+RECALL:  0.447293447293
+AVERAGE:  0.556273842291
+F-SCORE:  0.534923339012
+
+
+BOTH:
+python onlinelearning.py -a 1 -i 20 -f 3
++-------------------------------+
+| EXPERIMENT                    |
++-------------------------------+
+
+Algorithm: PERCEPTRON
+Max iterations: 20
+Feature set: BOTH
+
++-------------------------------+
+| TRAINING WEIGHTS              |
++-------------------------------+
+
+PERCEPTRON   Iteration #  0     Errors =  2129
+PERCEPTRON   Iteration #  1     Errors =  775
+PERCEPTRON   Iteration #  2     Errors =  290
+PERCEPTRON   Iteration #  3     Errors =  138
+PERCEPTRON   Iteration #  4     Errors =  71
+PERCEPTRON   Iteration #  5     Errors =  37
+PERCEPTRON   Iteration #  6     Errors =  26
+PERCEPTRON   Iteration #  7     Errors =  9
+PERCEPTRON   Iteration #  8     Errors =  12
+PERCEPTRON   Iteration #  9     Errors =  9
+PERCEPTRON   Iteration #  10    Errors =  1
+PERCEPTRON   Iteration #  11    Errors =  0
+
++-------------------------------+
+| PERFORMANCE FOR TRAINING SET  |
++-------------------------------+
+
+MATCHES:  6398
+MISMATCHES:  0
+TRUE POSITIVES:  3210
+PREDICTED POSITIVES:  3210
+ACTUAL POSITIVES:  3210
+ACCURACY:  1.0
+PRECISION:  1.0
+RECALL:  1.0
+AVERAGE:  1.0
+F-SCORE:  1.0
+
++---------------------------------+
+| PERFORMANCE FOR VALIDATING SET  |
++---------------------------------+
+
+MATCHES:  1568
+MISMATCHES:  564
+TRUE POSITIVES:  777
+PREDICTED POSITIVES:  1050
+ACTUAL POSITIVES:  1068
+ACCURACY:  0.540859698403
+PRECISION:  0.74
+RECALL:  0.727528089888
+AVERAGE:  0.733764044944
+F-SCORE:  0.733711048159
+
++------------------------------+
+| PERFORMANCE FOR TESTING SET  |
++------------------------------+
+
+MATCHES:  1543
+MISMATCHES:  589
+TRUE POSITIVES:  755
+PREDICTED POSITIVES:  1046
+ACTUAL POSITIVES:  1053
+ACCURACY:  0.523628592828
+PRECISION:  0.721797323136
+RECALL:  0.716999050332
+AVERAGE:  0.719398186734
+F-SCORE:  0.719390185803

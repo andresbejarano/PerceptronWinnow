@@ -1,0 +1,415 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt]{article}
+%\input{mydef.tex}
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\graphicspath{ {images/} }
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{amssymb,amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{subfigure}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{url}
+\usepackage[stable]{footmisc}
+\usepackage{booktabs}
+\usepackage[square]{natbib}
+\usepackage{indentfirst}
+%\usepackage[colorlinks, linkcolor=red, anchorcolor=purple, citecolor=blue]{hyperref}
+\usepackage{hyperref}
+
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\setlength{\headheight}{13.6pt}
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{CS 57800} % Top left header
+\chead{}
+\rhead{Homework} % Top right header
+\lfoot{} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+\setlength{\parskip}{.2\baselineskip}
+%\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\title{
+\textbf{CS57800 Statistical Machine Learning} \\ \textsc{Homework 2} \\
+\normalsize\vspace{0.1in}
+}
+
+\author{
+	\textbf{Andres Bejarano} \\
+	Department of Computer Science\\
+	\texttt{abejara@purdue.edu}
+}
+
+%\date{\today}
+\date{October 7, 2015}
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+%\thispagestyle{empty}
+
+% *--------------------------------------*
+% | Foundations
+% *--------------------------------------*
+\section{Foundations}
+
+
+% *--------------------------------------*
+% | First point
+% *--------------------------------------*
+\subsection{}
+
+\begin{enumerate}
+\item Boolean function:
+$$f(x_1, x_2, x_3, x_4) = (x_1 \land x_2) \lor (x_1 \land x_3) \lor (x_1 \land x_4) \lor (x_2 \land x_3) \lor (x_2 \land x_4) \lor (x_3 \land x_4)$$
+
+\item Linear function:
+$$f(x_1, x_2, x_3, x_4) = sgn(x_1 + x_2 + x_3 + x_4 - 1.5)$$
+
+\end{enumerate}
+
+
+% *--------------------------------------*
+% | Second point
+% *--------------------------------------*
+\subsection{}
+
+The size of $CON_B$ is $2^n$. Since there are two options (to appear or not) for each term, then there are 2 cases and n terms.
+
+
+% *--------------------------------------*
+% | Third point
+% *--------------------------------------*
+\subsection{}
+
+\begin{align*} 
+\lVert \beta_n - \beta^* \rVert ^ 2 &= \lVert \beta_n \rVert ^ 2 - 2 \beta_n \beta^* + \lVert \beta^* \rVert ^ 2\\
+&= \lVert \beta_o + y_ix_i \rVert ^ 2 - 2 \beta^*(\beta_o + y_ix_i) + \lVert \beta^* \rVert ^ 2\\
+&= \lVert \beta_o \rVert ^ 2 + 2\beta_o y_ix_i + \lVert y_ix_i \rVert ^ 2 - 2\beta^*\beta_o - 2\beta^*y_ix_i + \lVert \beta^* \rVert ^ 2\\
+&\leq \lVert \beta_o \rVert ^ 2 - 2\beta_o\beta^* + \lVert \beta^* \rVert ^ 2 + 1 - 2(1) \\
+&\leq \lVert \beta_o - \beta^* \rVert ^ 2 - 1
+\end{align*}
+
+From step 3 to step 4 the following considerations are applied: (1) By the concept of separability there exist a separating hyperplane such that the constraint $\beta^*y_iu_i^* \geq 1$ is satisfied (Ripley, 1996). Then it is followed that $\beta^* y_ix_i \geq 1$. (2) $\lVert y_ix_i \rVert \geq 1$ when at least one feature was classified by the hyperplane during an iteration. (3) Classification for $\beta_o$ is obtained after the first iteration (assuming $\beta_o=0$), then $\beta_o y_ix_i = 0$.
+
+% *--------------------------------------*
+% | Fourth point
+% *--------------------------------------*
+\subsection{}
+
+\begin{enumerate}
+\item Initialize $h$ to $x_1 \wedge \neg x_1 \wedge x_2 \wedge \neg x_2 \wedge ... \wedge x_n \wedge \neg x_n$
+\item For each positive sample (final result is $h_i=1$) remove all not satisfied expressions
+\end{enumerate}
+
+In the worst case the algorithm does at most $n+1$ mistakes (it needs to check at least half plus one of the literals). Since there are $2n$ literals in $h$, each one of them must be checked. The the mistake bound for the algorithm is $n+1$.
+
+
+% *--------------------------------------*
+% | Fifth point
+% *--------------------------------------*
+\subsection{}
+
+\begin{enumerate}
+\item Yes, both classifiers will converge. However, since the order to the data set affects the result they will return different solutions.
+\item Since solutions converge then data is linearly separable. Therefore both classifiers work correctly learning from data. Hence, their training error will be 0.
+\end{enumerate}
+
+
+% *--------------------------------------*
+% | Sixth point
+% *--------------------------------------*
+\subsection{}
+When an update occurs, $y_ix_i$ is equivalent to $w_{i+1}-w_i$ where $i$ is the index of the entry where the update occurred. Then we have:
+
+$$\lVert \sum_{i \in N} y_ix_i \rVert = \lVert \sum_{i \in N} (w_{i+1}-w_i) \rVert$$
+
+A sequence of type $\sum_{n=1}^{N}a_n-a_{n-1} = a_N-a_0$, then $\sum_{i \in N} w_{i+1}-w_i = w_{N+1}-w_0$. Assuming $w_0=0$ we have:
+
+$$\lVert \sum_{i \in N} y_ix_i \rVert = \lVert w_{N+1} \rVert$$
+
+Applying the same approach for $\lVert w_{N+1} \rVert$ as the resultant of sequence $\sum_{n=1}^{N}a_n-a_{n-1} = a_N-a_0$, then the above expression can be expressed as:
+
+$$\lVert \sum_{i \in N} y_ix_i \rVert = \sqrt{\sum_{i \in N} \lVert w_{i+1} \rVert ^ 2 - \lVert w_i \rVert ^ 2}$$
+
+Similarly as the first step, $w_{i+1}$ is the resultant after an updating $w_i$, then $w_{i+1}=w_{i} + y_ix_i$. The expression is now:
+
+$$\lVert \sum_{i \in N} y_ix_i \rVert = \sqrt{\sum_{i \in N} \lVert w_{i} + y_ix_i \rVert ^ 2 - \lVert w_i \rVert ^ 2}$$
+
+Expanding the first component of the summation we got:
+
+$$\lVert \sum_{i \in N} y_ix_i \rVert = \sqrt{\sum_{i \in N} \lVert w_{i} \rVert ^ 2 +  2y_ix_iw_i + \lVert y_ix_i \rVert ^ 2 - \lVert w_i \rVert ^ 2}$$
+
+$$\lVert \sum_{i \in N} y_ix_i \rVert = \sqrt{\sum_{i \in N} 2y_ix_iw_i + \lVert y_ix_i \rVert ^ 2}$$
+
+Since $2y_ix_iw_i \leq 0$ and $y_ix_i \leq x_i$ the above expression can be written as:
+
+$$\lVert \sum_{i \in N} y_ix_i \rVert \leq \sqrt{\sum_{i \in N} \lVert x_i \rVert ^ 2}_\blacksquare$$
+
+
+% *--------------------------------------*
+% | Programming Report
+% *--------------------------------------*
+\section{Programming Report}
+
+Both Perceptron and Winnow algorithms were implemented in Python.  For each one of them a couple of tasks were performed before running them:
+
+\begin{enumerate}
+\item Sentences are cleaned by removing grammatical and grouping symbols.
+\item A dictionary of neutral words is implemented in order to improve the classification mechanism. Such neutral words (in neutral.csv) are mostly English prepositions and auxiliary words. It is assumed that such words are useless for classification since they do not affect on the overall sentiment label of the sentence.
+\end{enumerate}
+
+The default parameters are used for defining experiments with the data sets. If no parameter is indicated then Perceptron is selected, the maximum number of iterations is 10 and the feature set is unigrams.
+
+The training process runs the number of indicated iterations. It can stop sooner if the number of errors during is 0.
+
+% *--------------------------------------*
+% | Perceptron
+% *--------------------------------------*
+\subsection{Perceptron Results}
+
+This algorithm converged faster to a error-free weight vector for the training set. In Figures 1, 2, and 3 it is shown the convergence behaviour for each feature set. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{convergence_perceptron_unigrams}
+\caption{Training convergence for Perceptron using Unigrams set}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{convergence_perceptron_bigrams}
+\caption{Training convergence for Perceptron using Bigrams set}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{convergence_perceptron_both}
+\caption{Training convergence for Perceptron using Both set}
+\end{figure}
+
+% *--------------------------------------*
+% | Perceptron - Max Iterations = 10
+% *--------------------------------------*
+\subsubsection{Experiments: Max Iterations = 10}
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Unigrams Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 0.975 & 0.983 & 0.992 & 0.987 & 0.987 \\
+ Validating & 0.518 & 0.712 & 0.739 & 0.726 & 0.726 \\
+ Testing    & 0.510 & 0.701 & 0.733 & 0.717 & 0.717 \\
+ \hline
+\end{tabular}
+
+\hfill \break
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Bigrams Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 1.000 & 1.000 & 0.999 & 0.999 & 0.999 \\
+ Validating & 0.294 & 0.631 & 0.377 & 0.504 & 0.472 \\
+ Testing    & 0.348 & 0.665 & 0.447 & 0.556 & 0.534 \\
+ \hline
+\end{tabular}
+
+\hfill \break
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Both Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 0.999 & 0.999 & 1.000 & 0.999 & 0.999 \\
+ Validating & 0.540 & 0.737 & 0.733 & 0.735 & 0.735 \\
+ Testing    & 0.527 & 0.720 & 0.727 & 0.724 & 0.724 \\
+ \hline
+\end{tabular}
+
+
+% *--------------------------------------*
+% | Perceptron - Max Iterations = 20
+% *--------------------------------------*
+\subsubsection{Experiments: Max Iterations = 20}
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Unigrams Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 0.997 & 0.998 & 0.999 & 0.998 & 0.998 \\
+ Validating & 0.537 & 0.732 & 0.735 & 0.734 & 0.734 \\
+ Testing    & 0.521 & 0.715 & 0.725 & 0.720 & 0.720 \\
+ \hline
+\end{tabular}
+
+\hfill \break
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Bigrams Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 1.000 & 1.000 & 0.999 & 0.999 & 0.999 \\
+ Validating & 0.294 & 0.631 & 0.377 & 0.504 & 0.472 \\
+ Testing    & 0.348 & 0.665 & 0.447 & 0.556 & 0.534 \\
+ \hline
+\end{tabular}
+
+\hfill \break
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Both Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 \\
+ Validating & 0.540 & 0.740 & 0.727 & 0.733 & 0.733 \\
+ Testing    & 0.523 & 0.721 & 0.716 & 0.719 & 0.719 \\
+ \hline
+\end{tabular}
+
+
+% *--------------------------------------*
+% | Perceptron - Max Iterations = 30
+% *--------------------------------------*
+\subsubsection{Experiments: Max Iterations = 30}
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Unigrams Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 \\
+ Validating & 0.527 & 0.717 & 0.750 & 0.734 & 0.733 \\
+ Testing    & 0.518 & 0.704 & 0.747 & 0.725 & 0.725 \\
+ \hline
+\end{tabular}
+
+\hfill \break
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Bigrams Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 1.000 & 1.000 & 0.999 & 0.999 & 0.999 \\
+ Validating & 0.294 & 0.631 & 0.377 & 0.504 & 0.472 \\
+ Testing    & 0.348 & 0.665 & 0.447 & 0.556 & 0.534 \\
+ \hline
+\end{tabular}
+
+\hfill \break
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Both Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 \\
+ Validating & 0.540 & 0.740 & 0.727 & 0.733 & 0.733 \\
+ Testing    & 0.523 & 0.721 & 0.716 & 0.719 & 0.719 \\
+ \hline
+\end{tabular}
+
+
+% *--------------------------------------*
+% | Winnow
+% *--------------------------------------*
+\subsection{Winnow Results}
+
+The Winnow algorithm was implemented according to the specifications. However, after several tries and tunings, the algorithm didn't converged to an error-free weight vector. Therefore the metrics for this algorithm are not as good as Perceptron.
+
+% *--------------------------------------*
+% | Winnow - Max Iterations = 10
+% *--------------------------------------*
+\subsubsection{Experiments: Max Iterations = 10, 20, 30}
+
+For 10, 20 and 30 iterations no considerable changes were found. The Bigrams set got a slightly better performance than the other two sets.
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Unigrams Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 0.000 & 0.501 & 1.000 & 0.750 & 0.668 \\
+ Validating & 0.000 & 0.500 & 1.000 & 0.750 & 0.667 \\
+ Testing    & 0.000 & 0.493 & 1.000 & 0.746 & 0.661 \\
+ \hline
+\end{tabular}
+
+\hfill \break
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Bigrams Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 0.000 & 0.502 & 0.999 & 0.750 & 0.668 \\
+ Validating & 0.161 & 0.485 & 0.732 & 0.608 & 0.583 \\
+ Testing    & 0.177 & 0.492 & 0.764 & 0.628 & 0.599 \\
+ \hline
+\end{tabular}
+
+\hfill \break
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|  }
+ \hline
+ \multicolumn{6}{|c|}{\textbf{\textit{Both Metrics}}} \\
+ \hline
+ \textit{Set} & \textit{Accuracy} & \textit{Precision} & \textit{Recall} & \textit{Average} & \textit{F-Score} \\
+ \hline
+ Training   & 0.000 & 0.501 & 1.000 & 0.750 & 0.668 \\
+ Validating & 0.000 & 0.500 & 1.000 & 0.750 & 0.667 \\
+ Testing    & 0.000 & 0.493 & 1.000 & 0.746 & 0.661 \\
+ \hline
+\end{tabular}
+
+
+%\nocite{*}
+%\bibliographystyle{plainnat}
+%\bibliography{all}
+
+\end{document}

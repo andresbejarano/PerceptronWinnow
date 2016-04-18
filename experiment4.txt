@@ -1,0 +1,213 @@
+Experiment 4 - Winnow with MaxIterations = 10
+
+UNIGRAMS:
+python onlinelearning.py -a 2 -i 10 -f 1
++-------------------------------+
+| EXPERIMENT                    |
++-------------------------------+
+
+Algorithm: WINNOW
+Max iterations: 10
+Feature set: UNIGRAMS
+
++-------------------------------+
+| TRAINING WEIGHTS              |
++-------------------------------+
+
+WINNOW   Iteration #  0         Errors =  3210
+WINNOW   Iteration #  1         Errors =  3210
+WINNOW   Iteration #  2         Errors =  3210
+WINNOW   Iteration #  3         Errors =  3210
+WINNOW   Iteration #  4         Errors =  3210
+WINNOW   Iteration #  5         Errors =  3212
+WINNOW   Iteration #  6         Errors =  3206
+WINNOW   Iteration #  7         Errors =  3183
+WINNOW   Iteration #  8         Errors =  3184
+WINNOW   Iteration #  9         Errors =  3172
+
++-------------------------------+
+| PERFORMANCE FOR TRAINING SET  |
++-------------------------------+
+
+MATCHES:  3210
+MISMATCHES:  3188
+TRUE POSITIVES:  3210
+PREDICTED POSITIVES:  6398
+ACTUAL POSITIVES:  3210
+ACCURACY:  0.0
+PRECISION:  0.501719287277
+RECALL:  1.0
+AVERAGE:  0.750859643639
+F-SCORE:  0.668193172356
+
++---------------------------------+
+| PERFORMANCE FOR VALIDATING SET  |
++---------------------------------+
+
+MATCHES:  1068
+MISMATCHES:  1064
+TRUE POSITIVES:  1068
+PREDICTED POSITIVES:  2132
+ACTUAL POSITIVES:  1068
+ACCURACY:  0.0
+PRECISION:  0.500938086304
+RECALL:  1.0
+AVERAGE:  0.750469043152
+F-SCORE:  0.6675
+
++------------------------------+
+| PERFORMANCE FOR TESTING SET  |
++------------------------------+
+
+MATCHES:  1053
+MISMATCHES:  1079
+TRUE POSITIVES:  1053
+PREDICTED POSITIVES:  2132
+ACTUAL POSITIVES:  1053
+ACCURACY:  0.0
+PRECISION:  0.493902439024
+RECALL:  1.0
+AVERAGE:  0.746951219512
+F-SCORE:  0.661224489796
+
+
+BIGRAMS:
+python onlinelearning.py -a 2 -i 10 -f 2
++-------------------------------+
+| EXPERIMENT                    |
++-------------------------------+
+
+Algorithm: WINNOW
+Max iterations: 10
+Feature set: BIGRAMS
+
++-------------------------------+
+| TRAINING WEIGHTS              |
++-------------------------------+
+
+WINNOW   Iteration #  0         Errors =  3208
+WINNOW   Iteration #  1         Errors =  3208
+WINNOW   Iteration #  2         Errors =  3208
+WINNOW   Iteration #  3         Errors =  3208
+WINNOW   Iteration #  4         Errors =  3208
+WINNOW   Iteration #  5         Errors =  3208
+WINNOW   Iteration #  6         Errors =  3208
+WINNOW   Iteration #  7         Errors =  3208
+WINNOW   Iteration #  8         Errors =  3208
+WINNOW   Iteration #  9         Errors =  3208
+
++-------------------------------+
+| PERFORMANCE FOR TRAINING SET  |
++-------------------------------+
+
+MATCHES:  3208
+MISMATCHES:  3177
+TRUE POSITIVES:  3208
+PREDICTED POSITIVES:  6385
+ACTUAL POSITIVES:  3210
+ACCURACY:  0.0
+PRECISION:  0.502427564605
+RECALL:  0.99937694704
+AVERAGE:  0.750902255823
+F-SCORE:  0.668681605003
+
++---------------------------------+
+| PERFORMANCE FOR VALIDATING SET  |
++---------------------------------+
+
+MATCHES:  1016
+MISMATCHES:  1115
+TRUE POSITIVES:  782
+PREDICTED POSITIVES:  1612
+ACTUAL POSITIVES:  1068
+ACCURACY:  0.161182576342
+PRECISION:  0.485111662531
+RECALL:  0.732209737828
+AVERAGE:  0.608660700179
+F-SCORE:  0.583582089552
+
++------------------------------+
+| PERFORMANCE FOR TESTING SET  |
++------------------------------+
+
+MATCHES:  1055
+MISMATCHES:  1076
+TRUE POSITIVES:  805
+PREDICTED POSITIVES:  1633
+ACTUAL POSITIVES:  1053
+ACCURACY:  0.177291843959
+PRECISION:  0.492957746479
+RECALL:  0.764482431149
+AVERAGE:  0.628720088814
+F-SCORE:  0.59940431869
+
+
+BOTH:
+python onlinelearning.py -a 2 -i 10 -f 3
++-------------------------------+
+| EXPERIMENT                    |
++-------------------------------+
+
+Algorithm: WINNOW
+Max iterations: 10
+Feature set: BOTH
+
++-------------------------------+
+| TRAINING WEIGHTS              |
++-------------------------------+
+
+WINNOW   Iteration #  0         Errors =  3210
+WINNOW   Iteration #  1         Errors =  3210
+WINNOW   Iteration #  2         Errors =  3210
+WINNOW   Iteration #  3         Errors =  3210
+WINNOW   Iteration #  4         Errors =  3210
+WINNOW   Iteration #  5         Errors =  3210
+WINNOW   Iteration #  6         Errors =  3210
+WINNOW   Iteration #  7         Errors =  3210
+WINNOW   Iteration #  8         Errors =  3210
+WINNOW   Iteration #  9         Errors =  3210
+
++-------------------------------+
+| PERFORMANCE FOR TRAINING SET  |
++-------------------------------+
+
+MATCHES:  3210
+MISMATCHES:  3188
+TRUE POSITIVES:  3210
+PREDICTED POSITIVES:  6398
+ACTUAL POSITIVES:  3210
+ACCURACY:  0.0
+PRECISION:  0.501719287277
+RECALL:  1.0
+AVERAGE:  0.750859643639
+F-SCORE:  0.668193172356
+
++---------------------------------+
+| PERFORMANCE FOR VALIDATING SET  |
++---------------------------------+
+
+MATCHES:  1068
+MISMATCHES:  1064
+TRUE POSITIVES:  1068
+PREDICTED POSITIVES:  2132
+ACTUAL POSITIVES:  1068
+ACCURACY:  0.0
+PRECISION:  0.500938086304
+RECALL:  1.0
+AVERAGE:  0.750469043152
+F-SCORE:  0.6675
+
++------------------------------+
+| PERFORMANCE FOR TESTING SET  |
++------------------------------+
+
+MATCHES:  1053
+MISMATCHES:  1079
+TRUE POSITIVES:  1053
+PREDICTED POSITIVES:  2132
+ACTUAL POSITIVES:  1053
+ACCURACY:  0.0
+PRECISION:  0.493902439024
+RECALL:  1.0
+AVERAGE:  0.746951219512
+F-SCORE:  0.661224489796

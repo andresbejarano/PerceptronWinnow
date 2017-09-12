@@ -1,14 +1,15 @@
-CS578 - Statistical Machine Learning- Homework 2
-By: Andres Bejarano <abejara@cs.purdue.edu>
+#Perceptron/Winnow implementation in Python
+This is an elementary implementation of the Perceptron and Winnow classical methods taught in Machine Learning courses.
 
+##Instructions
 For running the program type the following command in console:
 
 	python onlinetraining.py
 
-
 By default, if no arguments are passed then Perceptron is selected with MaxIterations = 10 and Unigrams as feature set.
 
-IMPORTANT: It is required to have the three data set files (training, validating and testing) in the same folder of the python file and their names should also be train.csv, validation.csv and test.csv
+###IMPORTANT
+It is required to have the three data set files (training, validating and testing) in the same folder of the python file and their names should also be train.csv, validation.csv and test.csv
 
 The following are examples for running several experiments:
 Perceptron, MaxIterations = 10, Feature Set = Unigrams:  python onlinelearning.py -a 1 -i 10 -f 1
